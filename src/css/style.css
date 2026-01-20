@@ -1,15 +1,98 @@
 :root {
+  /* Core Colors */
   --bg-color: #0B1120;
-  --bg-secondary: #141C2F;
+  --bg-secondary: #0F172A;
   --text-primary: #FFFFFF;
   --text-secondary: #94A3B8;
+  --text-inverse: #0F172A;
+
+  /* Accents */
   --accent-primary: #38bdf8;
-  /* Electric Blue */
+  --accent-glow: rgba(56, 189, 248, 0.4);
+
+  /* UI Elements */
+  --glass-bg: rgba(30, 41, 59, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --navbar-bg: rgba(11, 17, 32, 0.9);
+
+  /* Special Effects */
+  --hero-glow-gradient: radial-gradient(circle, rgba(14, 165, 233, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
+  --logo-gradient: linear-gradient(135deg, #fff 0%, #94A3B8 100%);
+
+  /* Shadows */
+  --shadow-lg: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  --shadow-card: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+
+  /* Layout */
+  --max-width: 1200px;
+  --font-family: 'Outfit', sans-serif;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    /* Core Colors - Light Mode (System Preference) */
+    --bg-color: #F8FAFC;
+    --bg-secondary: #FFFFFF;
+    --text-primary: #0F172A;
+    --text-secondary: #475569;
+    --text-inverse: #FFFFFF;
+
+    /* Accents - Light Mode */
+    --accent-primary: #0284c7;
+    --accent-glow: rgba(2, 132, 199, 0.2);
+
+    /* UI Elements - Light Mode */
+    --glass-bg: rgba(255, 255, 255, 0.7);
+    --glass-border: rgba(203, 213, 225, 0.6);
+    --navbar-bg: rgba(255, 255, 255, 0.9);
+
+    /* Special Effects - Light Mode */
+    --hero-glow-gradient: radial-gradient(circle, rgba(14, 165, 233, 0.1) 0%, rgba(0, 0, 0, 0) 70%);
+    --logo-gradient: linear-gradient(135deg, #0F172A 0%, #475569 100%);
+
+    /* Shadows - Soft & Clean */
+    --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+    --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  }
+}
+
+/* 
+  Manual Theme Override 
+  This class is added by JS and takes precedence. 
+  It essentially duplicates the light theme variables.
+*/
+body.light-theme {
+  --bg-color: #F8FAFC;
+  --bg-secondary: #FFFFFF;
+  --text-primary: #0F172A;
+  --text-secondary: #475569;
+  --text-inverse: #FFFFFF;
+  --accent-primary: #0284c7;
+  --accent-glow: rgba(2, 132, 199, 0.2);
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(203, 213, 225, 0.6);
+  --navbar-bg: rgba(255, 255, 255, 0.9);
+  --hero-glow-gradient: radial-gradient(circle, rgba(14, 165, 233, 0.1) 0%, rgba(0, 0, 0, 0) 70%);
+  --logo-gradient: linear-gradient(135deg, #0F172A 0%, #475569 100%);
+  --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+}
+
+body.dark-theme {
+  --bg-color: #0B1120;
+  --bg-secondary: #0F172A;
+  --text-primary: #FFFFFF;
+  --text-secondary: #94A3B8;
+  --text-inverse: #0F172A;
+  --accent-primary: #38bdf8;
   --accent-glow: rgba(56, 189, 248, 0.4);
   --glass-bg: rgba(30, 41, 59, 0.7);
   --glass-border: rgba(255, 255, 255, 0.1);
-  --font-family: 'Outfit', sans-serif;
-  --max-width: 1200px;
+  --navbar-bg: rgba(11, 17, 32, 0.9);
+  --hero-glow-gradient: radial-gradient(circle, rgba(14, 165, 233, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
+  --logo-gradient: linear-gradient(135deg, #fff 0%, #94A3B8 100%);
+  --shadow-lg: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  --shadow-card: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
 }
 
 * {
@@ -24,6 +107,7 @@ body {
   color: var(--text-primary);
   line-height: 1.6;
   overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 a {
@@ -43,11 +127,12 @@ a {
   position: fixed;
   top: 0;
   width: 100%;
-  background: rgba(11, 17, 32, 0.9);
+  background: var(--navbar-bg);
   backdrop-filter: blur(10px);
   z-index: 1000;
   border-bottom: 1px solid var(--glass-border);
   padding: 1rem 0;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .navbar-content {
@@ -56,10 +141,82 @@ a {
   align-items: center;
 }
 
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+  background: transparent;
+  border: 1px solid var(--glass-border);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--text-primary);
+  transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+  background: var(--glass-bg);
+  color: var(--accent-primary);
+}
+
+/* Icon visibility logic */
+.theme-toggle .sun-icon {
+  display: none;
+}
+
+.theme-toggle .moon-icon {
+  display: block;
+}
+
+/* When light theme is active (either via body class or media query default) */
+@media (prefers-color-scheme: light) {
+  body:not(.dark-theme) .theme-toggle .sun-icon {
+    display: block;
+  }
+
+  body:not(.dark-theme) .theme-toggle .moon-icon {
+    display: none;
+  }
+
+  /* Invert logo for light theme to make it visible */
+  body:not(.dark-theme) .logo img {
+    filter: invert(1) brightness(0.2);
+  }
+}
+
+body.light-theme .theme-toggle .sun-icon {
+  display: block;
+}
+
+body.light-theme .theme-toggle .moon-icon {
+  display: none;
+}
+
+/* Invert logo for manual light theme */
+body.light-theme .logo img {
+  filter: invert(1) brightness(0.2);
+}
+
+body.dark-theme .theme-toggle .sun-icon {
+  display: none;
+}
+
+body.dark-theme .theme-toggle .moon-icon {
+  display: block;
+}
+
 .logo {
   font-weight: 700;
   font-size: 1.5rem;
-  background: linear-gradient(135deg, #fff 0%, var(--text-secondary) 100%);
+  background: var(--logo-gradient);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -139,8 +296,9 @@ a {
   transform: translateX(-50%);
   width: 600px;
   height: 600px;
-  background: radial-gradient(circle, rgba(14, 165, 233, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
+  background: var(--hero-glow-gradient);
   pointer-events: none;
+  transition: background 0.3s ease;
 }
 
 .hero-content {
@@ -161,6 +319,7 @@ a {
   line-height: 1.2;
   margin-bottom: 1.5rem;
   font-weight: 700;
+  color: var(--text-primary);
 }
 
 .hero-text .subtitle {
@@ -179,9 +338,9 @@ a {
   border: 1px solid var(--glass-border);
   border-radius: 12px;
   padding: 1rem;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  box-shadow: var(--shadow-lg);
   transform: rotateY(-5deg) rotateX(5deg);
-  transition: transform 0.5s ease;
+  transition: transform 0.5s ease, background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .hero-visual:hover .glass-frame {
@@ -219,7 +378,7 @@ a {
   border: 1px solid var(--glass-border);
   padding: 2rem;
   border-radius: 16px;
-  transition: transform 0.3s ease, border-color 0.3s ease;
+  transition: transform 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
 }
 
 .feature-card:hover {
@@ -236,6 +395,7 @@ a {
 .feature-card h3 {
   margin-bottom: 1rem;
   font-size: 1.25rem;
+  color: var(--text-primary);
 }
 
 .feature-card p {
@@ -268,6 +428,7 @@ a {
 .text-block h2 {
   font-size: 2rem;
   margin-bottom: 1.5rem;
+  color: var(--text-primary);
 }
 
 .text-block p {
@@ -283,7 +444,7 @@ a {
 .feature-img {
   width: 100%;
   border-radius: 12px;
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+  box-shadow: var(--shadow-card);
   border: 1px solid var(--glass-border);
 }
 
@@ -312,6 +473,7 @@ a {
   padding: 4rem 0 2rem;
   background: var(--bg-secondary);
   margin-top: auto;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .footer-content {
