@@ -15,10 +15,10 @@ We are committed to protecting your privacy and being transparent about our data
 **Veloscope does not collect, store, or process any personal data.**
 
 Specifically:
-- We do not collect names, email addresses, or user identifiers.
-- We do not store Jira issues, comments, or user-generated content.
-- We do not track users or usage across instances.
-- We do not use cookies, analytics, or tracking technologies.
+    - We do not collect names, email addresses, or user identifiers.
+    - We do not store Jira issues, comments, or user-generated content.
+    - We do not track users or usage across instances.
+    - We do not use cookies, analytics, or tracking technologies.
 
 The App operates solely within the context of the Jira instance in which it is installed and processes data only transiently to provide its functionality.
 
@@ -27,8 +27,8 @@ The App operates solely within the context of the Jira instance in which it is i
 ## 3. Data Processing Purpose
 
 Any data accessed via Jira APIs is used **only in real time** to:
-- calculate and display aggregated metrics related to Jira epics and versions
-- present results directly to the user within the Jira interface
+    - calculate and display aggregated metrics related to Jira epics and versions
+    - present results directly to the user within the Jira interface
 
 No data is persisted outside the Atlassian platform.
 
@@ -36,9 +36,9 @@ No data is persisted outside the Atlassian platform.
 
 ## 4. Data Storage and Retention
 
-- No data is stored by Veloscope.
-- No data is retained after a request is completed.
-- No data is transferred to external databases or third-party services.
+    - No data is stored by Veloscope.
+    - No data is retained after a request is completed.
+    - No data is transferred to external databases or third-party services.
 
 ---
 
