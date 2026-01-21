@@ -67,3 +67,25 @@ if (privacyContent) {
       privacyContent.innerHTML = '<p>Error loading privacy policy.</p>';
     });
 }
+
+// --- Contact Page Logic ---
+const contactContent = document.getElementById('contact-content');
+
+if (contactContent) {
+  fetch('/contact.md')
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.text();
+    })
+    .then(markdown => {
+      const html = marked.parse(markdown);
+      contactContent.innerHTML = html;
+    })
+    .catch(error => {
+      console.error('Error loading contact info:', error);
+      contactContent.innerHTML = '<p>Error loading contact info.</p>';
+    });
+}
+
