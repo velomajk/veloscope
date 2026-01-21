@@ -205,6 +205,42 @@ body.light-theme .logo img {
   filter: invert(1) brightness(0.2);
 }
 
+/* Theme-based visibility utility classes */
+.theme-light-only {
+  display: block;
+}
+
+.theme-dark-only {
+  display: none !important;
+}
+
+body.light-theme .theme-light-only {
+  display: block;
+}
+
+body.light-theme .theme-dark-only {
+  display: none !important;
+}
+
+body.dark-theme .theme-light-only {
+  display: none !important;
+}
+
+body.dark-theme .theme-dark-only {
+  display: block !important;
+}
+
+/* Also support media query preference if no class is present */
+@media (prefers-color-scheme: dark) {
+  body:not(.light-theme) .theme-light-only {
+    display: none !important;
+  }
+
+  body:not(.light-theme) .theme-dark-only {
+    display: block !important;
+  }
+}
+
 body.dark-theme .theme-toggle .sun-icon {
   display: none;
 }
