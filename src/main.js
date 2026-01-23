@@ -89,3 +89,24 @@ if (contactContent) {
     });
 }
 
+// --- Security Page Logic ---
+const securityContent = document.getElementById('security-content');
+
+if (securityContent) {
+  fetch('/security.md')
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.text();
+    })
+    .then(markdown => {
+      const html = marked.parse(markdown);
+      securityContent.innerHTML = html;
+    })
+    .catch(error => {
+      console.error('Error loading security policy:', error);
+      securityContent.innerHTML = '<p>Error loading security policy.</p>';
+    });
+}
+

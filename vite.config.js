@@ -9,6 +9,7 @@ export default defineConfig({
                 main: resolve(__dirname, 'index.html'),
                 privacy: resolve(__dirname, 'privacy.html'),
                 contact: resolve(__dirname, 'contact.html'),
+                security: resolve(__dirname, 'security.html'),
             },
         },
     },
