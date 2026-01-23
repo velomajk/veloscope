@@ -89,6 +89,7 @@ if (contactContent) {
     });
 }
 
+
 // --- Security Page Logic ---
 const securityContent = document.getElementById('security-content');
 
@@ -109,4 +110,26 @@ if (securityContent) {
       securityContent.innerHTML = '<p>Error loading security policy.</p>';
     });
 }
+
+// --- Documentation Page Logic ---
+const documentationContent = document.getElementById('documentation-content');
+
+if (documentationContent) {
+  fetch('/documentation.md')
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.text();
+    })
+    .then(markdown => {
+      const html = marked.parse(markdown);
+      documentationContent.innerHTML = html;
+    })
+    .catch(error => {
+      console.error('Error loading documentation:', error);
+      documentationContent.innerHTML = '<p>Error loading documentation.</p>';
+    });
+}
+
 
