@@ -10,6 +10,7 @@ export default defineConfig({
                 privacy: resolve(__dirname, 'privacy.html'),
                 contact: resolve(__dirname, 'contact.html'),
                 security: resolve(__dirname, 'security.html'),
+                services: resolve(__dirname, 'services.html'),
                 documentation: resolve(__dirname, 'documentation.html'),
             },
         },
