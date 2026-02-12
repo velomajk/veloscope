@@ -132,4 +132,25 @@ if (documentationContent) {
     });
 }
 
+// --- Services Page Logic ---
+const servicesContent = document.getElementById('services-content');
+
+if (servicesContent) {
+  fetch('/services.md')
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.text();
+    })
+    .then(markdown => {
+      const html = marked.parse(markdown);
+      servicesContent.innerHTML = html;
+    })
+    .catch(error => {
+      console.error('Error loading services info:', error);
+      servicesContent.innerHTML = '<p>Error loading services info.</p>';
+    });
+}
+
 
