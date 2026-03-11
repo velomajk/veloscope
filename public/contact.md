@@ -13,8 +13,3 @@ We handle all support requests via email and aim to respond within 24 hours.
 ## General Inquiries
 
 For general questions about Veloscope, partnership opportunities, or other inquiries, you can use the same email address above.
-
-## Mailing Address
-
-Veloscope  
-[Insert Address Here if applicable, otherwise remove this section]

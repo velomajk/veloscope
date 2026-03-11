@@ -278,6 +278,8 @@ html.dark-theme .theme-toggle .moon-icon {
   .nav-links {
     display: flex;
     gap: 2rem;
+    margin-left: auto;
+    margin-right: 2rem;
   }
 }
 
@@ -392,6 +394,7 @@ html.dark-theme .theme-toggle .moon-icon {
 
 /* Sections */
 .section {
+  scroll-margin-top: 100px;
   padding: 5rem 0;
 }
 
@@ -767,4 +770,11 @@ html.dark-theme .theme-toggle .moon-icon {
   .nav-actions .btn-primary {
     display: none;
   }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+.section {
+  scroll-margin-top: 100px;
 }
