@@ -1,5 +1,5 @@
 import { marked } from 'marked';
-import './css/style.css'; // Import styles directly here for Vite to bundle
+ // Import styles directly here for Vite to bundle
 
 // --- Theme Logic ---
 
@@ -9,11 +9,11 @@ const body = document.body;
 // Function to set theme
 function setTheme(theme) {
   if (theme === 'light') {
-    body.classList.add('light-theme');
-    body.classList.remove('dark-theme');
+    document.documentElement.classList.add('light-theme');
+    document.documentElement.classList.remove('dark-theme');
   } else {
-    body.classList.add('dark-theme');
-    body.classList.remove('light-theme');
+    document.documentElement.classList.add('dark-theme');
+    document.documentElement.classList.remove('light-theme');
   }
   localStorage.setItem('theme', theme);
 }
@@ -33,7 +33,7 @@ setTheme(getPreferredTheme());
 // Event listener for toggle button
 if (themeToggleBtn) {
   themeToggleBtn.addEventListener('click', () => {
-    const currentTheme = body.classList.contains('light-theme') ? 'light' : 'dark';
+    const currentTheme = document.documentElement.classList.contains('light-theme') ? 'light' : 'dark';
     const newTheme = currentTheme === 'light' ? 'dark' : 'light';
     setTheme(newTheme);
   });
@@ -154,3 +154,108 @@ if (servicesContent) {
 }
 
 
+
+// --- Blog Index Logic ---
+const blogGrid = document.getElementById('blog-grid');
+
+if (blogGrid) {
+  fetch('/blog/posts.json')
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .then(posts => {
+      if (posts.length === 0) {
+        blogGrid.innerHTML = '<p>No posts found.</p>';
+        return;
+      }
+      
+      let html = '';
+      posts.forEach(post => {
+        // Build the card layout dynamically
+        html += `
+          <a href="post.html?id=${post.id}" class="blog-card">
+            <div class="blog-card-img-container">
+              <img src="${post.thumbnail}" alt="${post.title}" loading="lazy" />
+            </div>
+            <div class="blog-card-content">
+              <span class="blog-card-date">${post.date}</span>
+              <h2 class="blog-card-title">${post.title}</h2>
+              <p class="blog-card-excerpt">${post.excerpt}</p>
+              <span class="blog-card-read-more">Read More</span>
+            </div>
+          </a>
+        `;
+      });
+      blogGrid.innerHTML = html;
+    })
+    .catch(error => {
+      console.error('Error loading blog posts:', error);
+      blogGrid.innerHTML = '<p>Error loading blog posts.</p>';
+    });
+}
+
+// --- Single Post Logic ---
+const postContent = document.getElementById('post-content');
+const postMeta = document.getElementById('post-meta');
+
+if (postContent && postMeta) {
+  // 1. Get the post ID from the URL query string, e.g. ?id=first-post
+  const urlParams = new URLSearchParams(window.location.search);
+  const postId = urlParams.get('id');
+
+  if (!postId) {
+    postContent.innerHTML = '<p>Post ID not provided.</p>';
+  } else {
+    // 2. Fetch the metadata from posts.json to get the title and date for the header
+    fetch('/blog/posts.json')
+      .then(res => res.json())
+      .then(posts => {
+        const postMetaInfo = posts.find(p => p.id === postId);
+        if (postMetaInfo) {
+          postMeta.innerHTML = `
+            <span class="post-meta-date">${postMetaInfo.date}</span>
+            <h1 class="post-meta-title">${postMetaInfo.title}</h1>
+          `;
+        }
+      })
+      .catch(err => console.error('Error fetching post meta:', err));
+
+    // 3. Fetch the actual markdown content
+    fetch(`/blog/${postId}/index.md`)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Post not found');
+        }
+        return response.text();
+      })
+      .then(markdown => {
+        const html = marked.parse(markdown);
+        postContent.innerHTML = html;
+      })
+      .catch(error => {
+        console.error('Error loading post content:', error);
+        postContent.innerHTML = '<p>Error loading post content. It may not exist.</p>';
+      });
+  }
+}
+
+// --- Mobile Navigation Logic ---
+const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+const navLinks = document.querySelector('.nav-links');
+
+if (mobileMenuBtn && navLinks) {
+  mobileMenuBtn.addEventListener('click', () => {
+    navLinks.classList.toggle('mobile-active');
+  });
+
+  // Close menu when a link is clicked
+  const links = navLinks.querySelectorAll('a');
+  links.forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('mobile-active');
+    });
+  });
+}

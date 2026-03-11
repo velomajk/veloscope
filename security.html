@@ -18,6 +18,24 @@
 
         gtag('config', 'G-BWNBKF4TES');
     </script>
+  <script>
+    (function() {
+      try {
+        var theme = localStorage.getItem('theme');
+        if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark-theme');
+        } else if (theme === 'light' || (!theme && window.matchMedia('(prefers-color-scheme: light)').matches)) {
+          document.documentElement.classList.add('light-theme');
+        }
+      } catch (e) {}
+    })();
+  </script>
+    <link rel="stylesheet" href="/src/css/style.css">
+  <style>
+    html.dark-theme { background-color: #0B1120; color: #FFFFFF; }
+    html.light-theme { background-color: #F8FAFC; color: #0F172A; }
+    body { margin: 0; }
+  </style>
 </head>
 
 <body>
@@ -28,8 +46,12 @@
                     <img src="/src/assets/veloscope-icon.svg" alt="Veloscope Logo" />
                     Veloscope
                 </a>
+                <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle Navigation">
+                    ☰
+                </button>
                 <div class="nav-links">
                     <a href="index.html">Back to Home</a>
+                    <a href="blog.html">Blog</a>
                     <a href="services.html">Services</a>
                     <a href="documentation.html">Documentation</a>
                 </div>

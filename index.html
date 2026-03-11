@@ -18,23 +18,45 @@
 
     gtag('config', 'G-BWNBKF4TES');
   </script>
+  <script>
+    (function() {
+      try {
+        var theme = localStorage.getItem('theme');
+        if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark-theme');
+        } else if (theme === 'light' || (!theme && window.matchMedia('(prefers-color-scheme: light)').matches)) {
+          document.documentElement.classList.add('light-theme');
+        }
+      } catch (e) {}
+    })();
+  </script>
+    <link rel="stylesheet" href="/src/css/style.css">
+  <style>
+    html.dark-theme { background-color: #0B1120; color: #FFFFFF; }
+    html.light-theme { background-color: #F8FAFC; color: #0F172A; }
+    body { margin: 0; }
+  </style>
 </head>
 
 <body>
   <div id="app">
     <nav class="navbar">
       <div class="container navbar-content">
-        <div class="logo">
+                <div class="logo">
           <img src="/src/assets/veloscope-icon.svg" alt="Veloscope Logo" />
           Veloscope
         </div>
-        <div class="nav-links">
-          <a href="#features">Features</a>
-          <a href="#benefits">How it works</a>
-          <a href="services.html">Services</a>
-          <a href="documentation.html">Documentation</a>
-          <a href="privacy.html">Privacy</a>
-        </div>
+        <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle Navigation">
+          ☰
+        </button>
+                <div class="nav-links">
+                    <a href="#features">Features</a>
+                    <a href="#benefits">How it works</a>
+                    <a href="blog.html">Blog</a>
+                    <a href="services.html">Services</a>
+                    <a href="documentation.html">Documentation</a>
+                    <a href="privacy.html">Privacy</a>
+                </div>
         <div class="nav-actions">
           <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
             <!-- Sun Icon -->

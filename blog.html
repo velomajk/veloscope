@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Privacy Policy - Veloscope</title>
+    <title>Blog - Veloscope</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -50,7 +50,7 @@
                     ☰
                 </button>
                 <div class="nav-links">
-                    <a href="index.html">Back to Home</a>
+                    <a href="index.html">Home</a>
                     <a href="blog.html">Blog</a>
                     <a href="services.html">Services</a>
                     <a href="documentation.html">Documentation</a>
@@ -58,10 +58,17 @@
             </div>
         </nav>
 
+        <header class="section hero-blog">
+            <div class="container">
+                <h1 class="section-title" style="text-align: left; margin-bottom: 1rem;">The Veloscope Blog</h1>
+                <p class="subtitle" style="text-align: left; max-width: 600px; margin: 0;">Insights on software delivery timelines, forecasting, project management, and inside looks at building Veloscope.</p>
+            </div>
+        </header>
+
         <section class="section">
-            <div class="container" style="max-width: 800px; padding-top: 4rem;">
-                <div id="privacy-content" class="markdown-body">
-                    Loading Privacy Policy...
+            <div class="container">
+                <div id="blog-grid" class="blog-grid">
+                    <!-- Blog cards will be injected here by JS -->
                 </div>
             </div>
         </section>
@@ -69,7 +76,23 @@
         <footer class="footer">
             <div class="container footer-content">
                 <div class="footer-col">
+                    <div class="logo">
+                        <img src="/src/assets/veloscope-icon.svg" alt="Veloscope Logo" />
+                        Veloscope
+                    </div>
                     <p>&copy; 2026 Veloscope. All rights reserved.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Product</h4>
+                    <a href="https://marketplace.atlassian.com/apps/1713935368">Marketplace</a>
+                    <a href="index.html#features">Features</a>
+                    <a href="documentation.html">Documentation</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="security.html">Security Policy</a>
+                    <a href="contact.html">Contact</a>
                 </div>
             </div>
         </footer>
