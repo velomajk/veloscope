@@ -10,6 +10,10 @@ Teams often try to bridge this gap with Jira Automation rules — calculating su
 
 This gap has created a thriving Atlassian Marketplace ecosystem. But the tools available solve fundamentally different problems, and picking the wrong one means paying for complexity you don't need — or missing the simplicity you do.
 
+---
+![Running projects](/blog/tools-comp/on-time.jpg)
+---
+
 ## The Marketplace Isn't One-Size-Fits-All
 
 Before evaluating specific tools, it helps to understand that they fall into distinct categories based on the question they're designed to answer.
