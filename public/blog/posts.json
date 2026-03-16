@@ -1,5 +1,12 @@
 [
   {
+    "id": "tools-comp",
+    "title": "Epic Delivery Forecasting in Jira: Finding the Right Tool for Your Team",
+    "excerpt": "A breakdown of the Jira Marketplace forecasting landscape — from enterprise PPM suites to lightweight velocity-based tools",
+    "date": "2026-03-16",
+    "thumbnail": "/blog/tools-comp/on-time.jpg"
+  },
+  {
     "id": "actual-first-post",
     "title": "The Past Is the Best Forecast: How I Use Historical Data to Predict Engineering Delivery",
     "excerpt": "A practical guide for Engineering Managers who want real predictability — not wishful thinking",
