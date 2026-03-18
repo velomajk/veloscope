@@ -1,5 +1,12 @@
 [
   {
+    "id": "dependency-hell",
+    "title": "Dependencies Are the Silent Killer of Team Productivity",
+    "excerpt": "Why cross-team dependencies destroy your delivery timeline — and the simple discipline that fixes it",
+    "date": "2026-03-18",
+    "thumbnail": "/blog/dependency-hell/dependecy.jpg"
+  },
+  {
     "id": "tools-comp",
     "title": "Epic Delivery Forecasting in Jira: Finding the Right Tool for Your Team",
     "excerpt": "A breakdown of the Jira Marketplace forecasting landscape — from enterprise PPM suites to lightweight velocity-based tools",
