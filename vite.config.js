@@ -1,8 +1,10 @@
 import { defineConfig } from 'vite';
 import { resolve } from 'path';
+import blogPrerender from './vite-plugin-blog-prerender.js';
 
 export default defineConfig({
     base: '/',
+    plugins: [blogPrerender()],
     build: {
         rollupOptions: {
             input: {

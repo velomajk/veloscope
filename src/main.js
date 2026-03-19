@@ -176,7 +176,7 @@ if (blogGrid) {
       posts.forEach(post => {
         // Build the card layout dynamically
         html += `
-          <a href="post.html?id=${post.id}" class="blog-card">
+          <a href="/blog/${post.id}/" class="blog-card">
             <div class="blog-card-img-container">
               <img src="${post.thumbnail}" alt="${post.title}" loading="lazy" />
             </div>
@@ -202,43 +202,53 @@ const postContent = document.getElementById('post-content');
 const postMeta = document.getElementById('post-meta');
 
 if (postContent && postMeta) {
-  // 1. Get the post ID from the URL query string, e.g. ?id=first-post
-  const urlParams = new URLSearchParams(window.location.search);
-  const postId = urlParams.get('id');
+  // Check if content is already pre-rendered (not "Loading Post..." placeholder)
+  const isPreRendered = postContent.textContent.trim() !== 'Loading Post...' && postContent.textContent.trim() !== '';
 
-  if (!postId) {
-    postContent.innerHTML = '<p>Post ID not provided.</p>';
-  } else {
-    // 2. Fetch the metadata from posts.json to get the title and date for the header
-    fetch('/blog/posts.json')
-      .then(res => res.json())
-      .then(posts => {
-        const postMetaInfo = posts.find(p => p.id === postId);
-        if (postMetaInfo) {
-          postMeta.innerHTML = `
-            <span class="post-meta-date">${postMetaInfo.date}</span>
-            <h1 class="post-meta-title">${postMetaInfo.title}</h1>
-          `;
-        }
-      })
-      .catch(err => console.error('Error fetching post meta:', err));
+  if (!isPreRendered) {
+    // 1. Get the post ID from the URL query string, e.g. ?id=first-post
+    const urlParams = new URLSearchParams(window.location.search);
+    const postId = urlParams.get('id');
 
-    // 3. Fetch the actual markdown content
-    fetch(`/blog/${postId}/index.md`)
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Post not found');
-        }
-        return response.text();
-      })
-      .then(markdown => {
-        const html = marked.parse(markdown);
-        postContent.innerHTML = html;
-      })
-      .catch(error => {
-        console.error('Error loading post content:', error);
-        postContent.innerHTML = '<p>Error loading post content. It may not exist.</p>';
-      });
+    // Redirect old post.html?id=X URLs to /blog/X (pre-rendered pages)
+    if (postId && !import.meta.env.DEV) {
+      window.location.replace(`/blog/${postId}/`);
+    }
+
+    if (!postId) {
+      postContent.innerHTML = '<p>Post ID not provided.</p>';
+    } else {
+      // 2. Fetch the metadata from posts.json to get the title and date for the header
+      fetch('/blog/posts.json')
+        .then(res => res.json())
+        .then(posts => {
+          const postMetaInfo = posts.find(p => p.id === postId);
+          if (postMetaInfo) {
+            postMeta.innerHTML = `
+              <span class="post-meta-date">${postMetaInfo.date}</span>
+              <h1 class="post-meta-title">${postMetaInfo.title}</h1>
+            `;
+          }
+        })
+        .catch(err => console.error('Error fetching post meta:', err));
+
+      // 3. Fetch the actual markdown content
+      fetch(`/blog/${postId}/index.md`)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Post not found');
+          }
+          return response.text();
+        })
+        .then(markdown => {
+          const html = marked.parse(markdown);
+          postContent.innerHTML = html;
+        })
+        .catch(error => {
+          console.error('Error loading post content:', error);
+          postContent.innerHTML = '<p>Error loading post content. It may not exist.</p>';
+        });
+    }
   }
 }
 
