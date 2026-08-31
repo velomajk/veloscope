@@ -2,31 +2,23 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Documentation - Veloscope</title>
-    <meta name="description" content="Veloscope documentation. Learn how to set up and use Epic Delivery Forecast for Jira to track delivery timelines.">
-    <link rel="canonical" href="https://veloscope.me/documentation.html">
-    <meta property="og:title" content="Documentation - Veloscope">
-    <meta property="og:description" content="Veloscope documentation. Learn how to set up and use Epic Delivery Forecast for Jira to track delivery timelines.">
-    <meta property="og:url" content="https://veloscope.me/documentation.html">
-    <meta property="og:type" content="website">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Documentation - Veloscope">
-    <meta name="twitter:description" content="Veloscope documentation. Learn how to set up and use Epic Delivery Forecast for Jira to track delivery timelines.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BWNBKF4TES"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-
-        gtag('config', 'G-BWNBKF4TES');
-    </script>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Documentation — Veloscope</title>
+  <meta name="description" content="Veloscope documentation — guides for Epic Delivery Forecast and KUP Compliance Reporter: setup, configuration, reading reports, approvals, and payroll exports.">
+  <link rel="canonical" href="https://veloscope.me/documentation.html">
+  <meta name="robots" content="index,follow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BWNBKF4TES"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-BWNBKF4TES');
+  </script>
   <script>
     (function() {
       try {
@@ -39,7 +31,7 @@
       } catch (e) {}
     })();
   </script>
-    <link rel="stylesheet" href="/src/css/style.css">
+  <link rel="stylesheet" href="/src/css/style.css">
   <style>
     html.dark-theme { background-color: #0B1120; color: #FFFFFF; }
     html.light-theme { background-color: #F8FAFC; color: #0F172A; }
@@ -48,79 +40,21 @@
 </head>
 
 <body>
-    <div id="app">
-        <nav class="navbar">
-            <div class="container navbar-content">
-                <a href="index.html" class="logo">
-                    <img src="/src/assets/veloscope-icon.svg" alt="Veloscope Logo" />
-                    Veloscope
-                </a>
-                <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle Navigation">
-                    ☰
-                </button>
-                <div class="nav-links">
-                    <a href="index.html">Home</a>
-                    <a href="blog.html">Blog</a>
-                </div>
-                <div class="nav-actions">
-                    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
-                        <!-- Sun Icon -->
-                        <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="5"></circle>
-                            <line x1="12" y1="1" x2="12" y2="3"></line>
-                            <line x1="12" y1="21" x2="12" y2="23"></line>
-                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                            <line x1="1" y1="12" x2="3" y2="12"></line>
-                            <line x1="21" y1="12" x2="23" y2="12"></line>
-                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                        </svg>
-                        <!-- Moon Icon -->
-                        <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                        </svg>
-                    </button>
-                    <a href="https://marketplace.atlassian.com/apps/1713935368" class="btn btn-primary">Get it on Marketplace</a>
-                </div>
-            </div>
-        </nav>
+  <div class="vs-app" id="app">
+    <main>
+      <div class="vs-docs" id="docs-root">
+        <div class="vs-docs-grid">
+          <div class="vs-docs-mobilebar" id="docs-mobilebar"></div>
+          <aside class="vs-docs-sidebar" id="docs-sidebar"></aside>
+          <article class="vs-doc-article" id="docs-article"></article>
+          <aside class="vs-docs-toc" id="docs-toc"></aside>
+        </div>
+      </div>
+    </main>
+  </div>
 
-        <main class="container page-content">
-            <div id="documentation-content" class="markdown-body">
-                <!-- Documentation content will be injected here -->
-                <div class="loading-spinner">Loading documentation...</div>
-            </div>
-        </main>
-
-        <footer class="footer">
-            <div class="container footer-content">
-                <div class="footer-col">
-                    <div class="logo">
-                        <img src="/src/assets/veloscope-icon.svg" alt="Veloscope Logo" />
-                        Veloscope
-                    </div>
-                    <p>&copy; 2026 Veloscope. All rights reserved.</p>
-                </div>
-                <div class="footer-col">
-                    <h4>Product</h4>
-                    <a href="https://marketplace.atlassian.com/apps/1713935368">Marketplace</a>
-                    <a href="index.html#features">Features</a>
-                    <a href="services.html">Services</a>
-                    <a href="documentation.html">Documentation</a>
-                </div>
-                <div class="footer-col">
-                    <h4>Legal</h4>
-                    <a href="privacy.html">Privacy Policy</a>
-                    <a href="security.html">Security Policy</a>
-                    <a href="contact.html">Contact</a>
-                </div>
-            </div>
-        </footer>
-    </div>
-    <script type="module" src="/src/main.js"></script>
+  <script type="module" src="/src/site.js"></script>
+  <script type="module" src="/src/docs.js"></script>
 </body>
 
 </html>

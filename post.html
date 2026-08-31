@@ -8,14 +8,13 @@
     <title>Post - Veloscope Blog</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-BWNBKF4TES"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
-
         gtag('config', 'G-BWNBKF4TES');
     </script>
   <script>
@@ -39,82 +38,45 @@
 </head>
 
 <body>
-    <div id="app">
-        <nav class="navbar">
-            <div class="container navbar-content">
-                <a href="/" class="logo">
-                    <img src="/src/assets/veloscope-icon.svg" alt="Veloscope Logo" />
-                    Veloscope
-                </a>
-                <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle Navigation">
-                    ☰
-                </button>
-                <div class="nav-links">
-                    <a href="/">Home</a>
-                    <a href="/blog.html">Blog</a>
-                </div>
-                <div class="nav-actions">
-                    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
-                        <!-- Sun Icon -->
-                        <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="5"></circle>
-                            <line x1="12" y1="1" x2="12" y2="3"></line>
-                            <line x1="12" y1="21" x2="12" y2="23"></line>
-                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                            <line x1="1" y1="12" x2="3" y2="12"></line>
-                            <line x1="21" y1="12" x2="23" y2="12"></line>
-                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                        </svg>
-                        <!-- Moon Icon -->
-                        <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                        </svg>
-                    </button>
-                    <a href="https://marketplace.atlassian.com/apps/1713935368" class="btn btn-primary">Get it on Marketplace</a>
-                </div>
-            </div>
-        </nav>
-
-        <section class="section post-viewer">
-            <div class="container" style="max-width: 800px; padding-top: 4rem;">
-                <a href="/blog.html" class="back-link">&larr; Back to Blog</a>
+    <div class="vs-app" id="app">
+        <main>
+            <div class="vs-post">
+                <a href="/blog.html" class="vs-post-back">← All posts</a>
                 <div id="post-meta" class="post-meta"></div>
                 <div id="post-content" class="markdown-body blog-post-body">
                     Loading Post...
                 </div>
-            </div>
-        </section>
-
-        <footer class="footer">
-            <div class="container footer-content">
-                <div class="footer-col">
-                    <div class="logo">
-                        <img src="/src/assets/veloscope-icon.svg" alt="Veloscope Logo" />
-                        Veloscope
-                    </div>
-                    <p>&copy; 2026 Veloscope. All rights reserved.</p>
-                </div>
-                <div class="footer-col">
-                    <h4>Product</h4>
-                    <a href="https://marketplace.atlassian.com/apps/1713935368">Marketplace</a>
-                    <a href="/#features">Features</a>
-                    <a href="/services.html">Services</a>
-                    <a href="/documentation.html">Documentation</a>
-                </div>
-                <div class="footer-col">
-                    <h4>Legal</h4>
-                    <a href="/privacy.html">Privacy Policy</a>
-                    <a href="/security.html">Security Policy</a>
-                    <a href="/contact.html">Contact</a>
+                <div class="vs-post-related" id="post-related" hidden>
+                    <span class="vs-post-related-label">Related posts</span>
+                    <div class="vs-post-related-grid" id="post-related-grid"></div>
                 </div>
             </div>
-        </footer>
+        </main>
     </div>
+    <script type="module" src="/src/site.js"></script>
     <script type="module" src="/src/main.js"></script>
+    <script type="module">
+      function fmt(iso) {
+        const d = new Date(iso);
+        return isNaN(d) ? iso : d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+      }
+      let id = new URLSearchParams(location.search).get('id');
+      if (!id) { const m = location.pathname.match(/\/blog\/([^/]+)\/?$/); if (m) id = m[1]; }
+      fetch('/blog/posts.json')
+        .then((r) => r.json())
+        .then((posts) => {
+          const others = posts.filter((p) => p.id !== id).slice(0, 2);
+          if (!others.length) return;
+          const wrap = document.getElementById('post-related');
+          document.getElementById('post-related-grid').innerHTML = others.map((p) => `
+            <a class="vs-post-related-card" href="/blog/${p.id}/">
+              <span class="vs-post-related-date">${fmt(p.date)}</span>
+              <span class="vs-post-related-title">${p.title}</span>
+            </a>`).join('');
+          wrap.hidden = false;
+        })
+        .catch(() => {});
+    </script>
 </body>
 
 </html>

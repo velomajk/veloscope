@@ -4,20 +4,26 @@
     "title": "Dependencies Are the Silent Killer of Team Productivity",
     "excerpt": "Why cross-team dependencies destroy your delivery timeline — and the simple discipline that fixes it",
     "date": "2026-03-18",
-    "thumbnail": "/blog/dependency-hell/dependecy.jpg"
+    "thumbnail": "/blog/dependency-hell/dependecy.jpg",
+    "tag": "DELIVERY",
+    "art": "linear-gradient(135deg, #0ea5e9 0%, #1e3a8a 100%)"
   },
   {
     "id": "tools-comp",
     "title": "Epic Delivery Forecasting in Jira: Finding the Right Tool for Your Team",
     "excerpt": "A breakdown of the Jira Marketplace forecasting landscape — from enterprise PPM suites to lightweight velocity-based tools",
     "date": "2026-03-16",
-    "thumbnail": "/blog/tools-comp/on-time.jpg"
+    "thumbnail": "/blog/tools-comp/on-time.jpg",
+    "tag": "JIRA",
+    "art": "linear-gradient(135deg, #7c3aed 0%, #0B1120 100%)"
   },
   {
     "id": "actual-first-post",
     "title": "The Past Is the Best Forecast: How I Use Historical Data to Predict Engineering Delivery",
     "excerpt": "A practical guide for Engineering Managers who want real predictability — not wishful thinking",
     "date": "2026-03-12",
-    "thumbnail": "/blog/actual-first-post/predictability-art.png"
+    "thumbnail": "/blog/actual-first-post/predictability-art.png",
+    "tag": "FORECASTING",
+    "art": "linear-gradient(135deg, #38bdf8 0%, #064e63 100%)"
   }
 ]
