@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KUP Compliance Reporter for Jira — Veloscope</title>
+  <meta name="description" content="Track KUP creative-work hours (honorarium autorskie) against monthly working-hour baselines, run a manager approval workflow, and export a payroll-ready monthly summary — straight from your Jira worklogs.">
+  <link rel="canonical" href="https://veloscope.me/products/kup.html">
+  <meta property="og:title" content="KUP Compliance Reporter for Jira — Veloscope">
+  <meta property="og:description" content="KUP compliance, straight from your Jira worklogs. Creative-work hours, monthly baselines, approvals, and payroll-ready exports.">
+  <meta property="og:image" content="https://veloscope.me/src/assets/veloscope-icon.svg">
+  <meta property="og:url" content="https://veloscope.me/products/kup.html">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="KUP Compliance Reporter for Jira — Veloscope">
+  <meta name="twitter:description" content="KUP compliance, straight from your Jira worklogs. Creative-work hours, monthly baselines, approvals, and payroll-ready exports.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BWNBKF4TES"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-BWNBKF4TES');
+  </script>
+  <script>
+    (function() {
+      try {
+        var theme = localStorage.getItem('theme');
+        if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark-theme');
+        } else if (theme === 'light' || (!theme && window.matchMedia('(prefers-color-scheme: light)').matches)) {
+          document.documentElement.classList.add('light-theme');
+        }
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="stylesheet" href="/src/css/style.css">
+  <style>
+    html.dark-theme { background-color: #0B1120; color: #FFFFFF; }
+    html.light-theme { background-color: #F8FAFC; color: #0F172A; }
+    body { margin: 0; }
+  </style>
+</head>
+
+<body>
+  <div class="vs-app vs-page kup" id="app">
+    <main>
+      <!-- Hero -->
+      <div class="vs-hero-wrap">
+        <div class="vs-glow kup"></div>
+        <div class="vs-prod-hero">
+          <div class="vs-prod-head">
+            <div class="vs-prod-meta">
+              <img class="vs-product-mark vs-product-mark-48" src="/assets/kup-icon.svg" alt="KUP Compliance Reporter">
+              <span class="vs-badge">For Jira</span>
+              <span class="vs-badge vs-badge-warn">Coming soon</span>
+            </div>
+            <h1 class="vs-prod-h1">KUP compliance, straight from your Jira worklogs.</h1>
+            <p class="vs-prod-lead">Track creative-work hours (honorarium autorskie) against monthly working-hour baselines, run a manager approval workflow, and export a payroll-ready monthly summary.</p>
+            <div class="vs-cta-row" style="justify-content:flex-start;">
+              <a class="vs-btn-primary vs-btn-sm kup-shadow" href="mailto:majk@veloscope.me?subject=Notify%20me%20at%20launch%20%E2%80%94%20KUP%20Compliance%20Reporter">Get notified at launch</a>
+              <a class="vs-btn-ghost vs-btn-sm" href="/documentation.html?product=kup&page=key-concepts">Read the docs</a>
+            </div>
+          </div>
+
+          <!-- Real product screenshot: Manager Approval report (theme-swapped) -->
+          <div class="vs-perspective">
+            <div class="vs-glass-3d">
+              <img class="theme-dark-only" src="/docs-assets/kup/manager-approval-dark.png" alt="KUP Compliance Reporter — Manager Approval report">
+              <img class="theme-light-only" src="/docs-assets/kup/manager-approval-light.png" alt="KUP Compliance Reporter — Manager Approval report">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- What it does -->
+      <div class="vs-band">
+        <div class="vs-band-inner">
+          <h2 class="vs-h2 center">What it does</h2>
+          <div class="vs-grid3">
+            <div class="vs-feature-card"><span class="vs-feature-title">Worklog-based tracking</span><span class="vs-feature-body">Creative-work hours roll up from the Jira worklogs your team already writes.</span></div>
+            <div class="vs-feature-card"><span class="vs-feature-title">Monthly baselines</span><span class="vs-feature-body">Per-month working-hour baselines respecting Polish public holidays and part-time contracts.</span></div>
+            <div class="vs-feature-card"><span class="vs-feature-title">50% rule guardrails</span><span class="vs-feature-body">Live KUP percentage per employee with warnings when a month drifts over the cap.</span></div>
+            <div class="vs-feature-card"><span class="vs-feature-title">Approval workflow</span><span class="vs-feature-body">Employees submit their month; managers review, request corrections, or approve.</span></div>
+            <div class="vs-feature-card"><span class="vs-feature-title">Payroll-ready exports</span><span class="vs-feature-body">A monthly summary your payroll provider can ingest — per employee, signed off.</span></div>
+            <div class="vs-feature-card"><span class="vs-feature-title">Audit trail</span><span class="vs-feature-body">Every submission, correction, and approval is recorded for tax-office scrutiny.</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- How it works -->
+      <section class="vs-section" style="gap:28px;">
+        <h2 class="vs-h2 center">How it works</h2>
+        <div class="vs-grid3">
+          <div class="vs-step-card">
+            <span class="vs-step-num">1</span>
+            <span class="vs-feature-title">Log work as usual</span>
+            <span class="vs-feature-body">Creative work is flagged on the issues and worklogs your team already keeps in Jira.</span>
+          </div>
+          <div class="vs-step-card">
+            <span class="vs-step-num">2</span>
+            <span class="vs-feature-title">Submit &amp; approve</span>
+            <span class="vs-feature-body">At month end, employees submit their summary and managers approve it in one click.</span>
+          </div>
+          <div class="vs-step-card">
+            <span class="vs-step-num">3</span>
+            <span class="vs-feature-title">Export for payroll</span>
+            <span class="vs-feature-body">One approved, audit-proof file per month — ready for your payroll provider.</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Docs CTA -->
+      <div class="vs-docs-band-wrap">
+        <div class="vs-docs-band">
+          <div style="display:flex;flex-direction:column;gap:6px;">
+            <span class="vs-docs-band-title">KUP Compliance Reporter documentation</span>
+            <span class="vs-docs-band-sub">Key concepts, administrator / manager / employee guides, and FAQ.</span>
+          </div>
+          <a class="vs-docs-band-btn" href="/documentation.html?product=kup&page=administrator-guide">Open the docs →</a>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script type="module" src="/src/site.js"></script>
+</body>
+
+</html>

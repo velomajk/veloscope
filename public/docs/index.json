@@ -1,0 +1,33 @@
+{
+  "products": [
+    {
+      "id": "edf",
+      "name": "Epic Delivery Forecast",
+      "mono": "EDF",
+      "tagline": "Set up the gadget, configure velocity, and read the forecast report.",
+      "accent": "#38bdf8",
+      "accentDeep": "#0ea5e9",
+      "sections": [
+        { "slug": "overview", "title": "Overview" },
+        { "slug": "configuration-guide", "title": "Configuration guide" },
+        { "slug": "reading-the-report", "title": "How to read the report" },
+        { "slug": "troubleshooting", "title": "Troubleshooting" }
+      ]
+    },
+    {
+      "id": "kup",
+      "name": "KUP Compliance Reporter",
+      "mono": "KUP",
+      "tagline": "Key concepts, role-based guides, and the monthly payroll workflow.",
+      "accent": "#a78bfa",
+      "accentDeep": "#7c3aed",
+      "sections": [
+        { "slug": "key-concepts", "title": "Key concepts" },
+        { "slug": "administrator-guide", "title": "Administrator guide" },
+        { "slug": "manager-guide", "title": "Manager guide" },
+        { "slug": "employee-guide", "title": "Employee guide" },
+        { "slug": "faq", "title": "FAQ" }
+      ]
+    }
+  ]
+}

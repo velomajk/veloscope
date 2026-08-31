@@ -14,6 +14,18 @@ export default function blogPrerender() {
       root = config.root;
       outDir = config.build.outDir;
     },
+    // Dev server: pretty /blog/<id>/ URLs don't exist as files until build,
+    // so serve the post.html template for them (the client renders the article).
+    configureServer(server) {
+      server.middlewares.use((req, res, next) => {
+        const url = (req.url || '').split('?')[0];
+        // Match a slug segment only (no dot → excludes files like posts.json).
+        if (/^\/blog\/[^/.]+\/?$/.test(url)) {
+          req.url = '/post.html';
+        }
+        next();
+      });
+    },
     writeBundle() {
       // 1. Read posts.json
       const postsPath = resolve(root, 'public/blog/posts.json');
@@ -44,10 +56,14 @@ export default function blogPrerender() {
         // Parse markdown to HTML
         const contentHtml = marked.parse(markdown);
 
-        // Build the post meta header
+        // Build the post meta header (eyebrow date · tag, title, author row)
+        const eyebrow = post.tag
+          ? `${formatDate(post.date)} · ${titleCase(post.tag)}`
+          : formatDate(post.date);
         const postMetaHtml = `
-            <span class="post-meta-date">${post.date}</span>
+            <span class="vs-post-eyebrow">${eyebrow}</span>
             <h1 class="post-meta-title">${post.title}</h1>
+            <div class="vs-post-author"><span class="vs-post-avatar">M</span><div><span class="vs-post-author-name">Majk</span><span class="vs-post-author-sub">Founder, Veloscope</span></div></div>
           `;
 
         // Build SEO meta tags
@@ -130,4 +146,14 @@ function escapeHtml(str) {
     .replace(/"/g, '&quot;')
     .replace(/</g, '&lt;')
     .replace(/>/g, '&gt;');
+}
+
+function formatDate(iso) {
+  const d = new Date(iso);
+  if (isNaN(d)) return iso;
+  return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+}
+
+function titleCase(s) {
+  return String(s).charAt(0).toUpperCase() + String(s).slice(1).toLowerCase();
 }

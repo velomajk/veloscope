@@ -5,17 +5,17 @@
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="/vite.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Veloscope - Turn epics into clear delivery timelines</title>
-  <meta name="description" content="Veloscope turns Jira epics into clear delivery timelines using velocity-based forecasting. One view, one number, realistic timelines — in seconds.">
+  <title>Veloscope — Focused apps for Atlassian Jira</title>
+  <meta name="description" content="Veloscope builds small, sharp apps for Atlassian Jira — velocity-based delivery forecasting and KUP compliance reporting. Native, read-only, and built on Forge.">
   <link rel="canonical" href="https://veloscope.me/">
-  <meta property="og:title" content="Veloscope - Turn epics into clear delivery timelines">
-  <meta property="og:description" content="One view. One number. Realistic timelines. Turn Jira epics into clear delivery forecasts using your team's actual velocity.">
+  <meta property="og:title" content="Veloscope — Focused apps for Atlassian Jira">
+  <meta property="og:description" content="Small, sharp tools that make Jira answer harder questions — delivery forecasting and compliance reporting.">
   <meta property="og:image" content="https://veloscope.me/src/assets/scr1light.png">
   <meta property="og:url" content="https://veloscope.me/">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Veloscope - Turn epics into clear delivery timelines">
-  <meta name="twitter:description" content="One view. One number. Realistic timelines. Turn Jira epics into clear delivery forecasts using your team's actual velocity.">
+  <meta name="twitter:title" content="Veloscope — Focused apps for Atlassian Jira">
+  <meta name="twitter:description" content="Small, sharp tools that make Jira answer harder questions — delivery forecasting and compliance reporting.">
   <meta name="twitter:image" content="https://veloscope.me/src/assets/scr1light.png">
   <script type="application/ld+json">
   {
@@ -24,7 +24,7 @@
     "name": "Veloscope",
     "url": "https://veloscope.me",
     "logo": "https://veloscope.me/src/assets/veloscope-icon.svg",
-    "description": "Velocity-based epic delivery forecasting for Jira"
+    "description": "A studio of focused apps for Atlassian Jira"
   }
   </script>
   <script type="application/ld+json">
@@ -37,14 +37,13 @@
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-BWNBKF4TES"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
-
     gtag('config', 'G-BWNBKF4TES');
   </script>
   <script>
@@ -59,7 +58,7 @@
       } catch (e) {}
     })();
   </script>
-    <link rel="stylesheet" href="/src/css/style.css">
+  <link rel="stylesheet" href="/src/css/style.css">
   <style>
     html.dark-theme { background-color: #0B1120; color: #FFFFFF; }
     html.light-theme { background-color: #F8FAFC; color: #0F172A; }
@@ -68,166 +67,119 @@
 </head>
 
 <body>
-  <div id="app">
-    <nav class="navbar">
-      <div class="container navbar-content">
-        <a href="index.html" class="logo">
-          <img src="/src/assets/veloscope-icon.svg" alt="Veloscope Logo" />
-          Veloscope
-        </a>
-        <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle Navigation">
-          ☰
-        </button>
-        <div class="nav-links">
-            <a href="#features">Features</a>
-            <a href="#benefits">How it works</a>
-            <a href="blog.html">Blog</a>
-        </div>
-        <div class="nav-actions">
-          <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
-            <!-- Sun Icon -->
-            <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="5"></circle>
-              <line x1="12" y1="1" x2="12" y2="3"></line>
-              <line x1="12" y1="21" x2="12" y2="23"></line>
-              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-              <line x1="1" y1="12" x2="3" y2="12"></line>
-              <line x1="21" y1="12" x2="23" y2="12"></line>
-              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-            </svg>
-            <!-- Moon Icon -->
-            <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-            </svg>
-          </button>
-          <a href="https://marketplace.atlassian.com/apps/1713935368" class="btn btn-primary">Get it on Marketplace</a>
-        </div>
-      </div>
-    </nav>
+  <div class="vs-app" id="app">
+    <main>
+      <!-- Hero + product grid -->
+      <div class="vs-hero-wrap">
+        <div class="vs-glow"></div>
+        <section class="vs-hero">
+          <div class="vs-eyebrow-pill"><span class="vs-dot"></span> A studio of focused Jira apps</div>
+          <h1 class="vs-h1">Small, sharp tools that make Jira answer harder questions.</h1>
+          <p class="vs-lead">Veloscope builds focused apps for Atlassian Jira — delivery forecasting, compliance reporting, and whatever your boards can't tell you yet.</p>
+          <div class="vs-cta-row">
+            <a class="vs-btn-primary" href="https://marketplace.atlassian.com/apps/1713935368" target="_blank" rel="noopener">Get apps on Marketplace</a>
+            <a class="vs-btn-ghost" href="/documentation.html">Explore the docs</a>
+          </div>
+        </section>
 
-    <header class="hero">
-      <div class="container hero-content">
-        <div class="hero-text">
-          <h1>Turn epics into clear delivery timelines — in seconds.</h1>
-          <p class="subtitle">One view. One number. Realistic timelines.</p>
-          <div class="cta-group">
-            <a href="https://marketplace.atlassian.com/apps/1713935368" class="btn btn-large btn-primary">Get it on
-              Atlassian
-              Marketplace</a>
+        <div class="vs-product-grid">
+          <div class="vs-pcard">
+            <div class="vs-pcard-top">
+              <div class="vs-mono vs-mono-56" style="--g1:#0ea5e9;--g2:#38bdf8">EDF</div>
+              <div class="vs-pcard-badges">
+                <span class="vs-badge">For Jira</span>
+                <span class="vs-badge vs-badge-ok">Live</span>
+              </div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px;">
+              <span class="vs-pcard-name">Epic Delivery Forecast</span>
+              <span class="vs-pcard-desc">Turn epics into clear delivery timelines — in seconds. Velocity-based forecasting that rolls an epic's issues into one realistic completion date.</span>
+            </div>
+            <div class="vs-pcard-actions">
+              <a class="vs-pcard-btn primary stretched" href="/products/edf.html">View product →</a>
+              <a class="vs-pcard-btn ghost is-above" href="https://marketplace.atlassian.com/apps/1713935368" target="_blank" rel="noopener">Marketplace ↗</a>
+            </div>
           </div>
-        </div>
-        <div class="hero-visual">
-          <div class="glass-frame">
-            <img src="/src/assets/scr1light.png" alt="Veloscope Dashboard" class="theme-light-only" />
-            <img src="/src/assets/scr1dark.png" alt="Veloscope Dashboard" class="theme-dark-only" />
-          </div>
-        </div>
-      </div>
-    </header>
 
-    <section id="benefits" class="section benefits-section">
-      <div class="container">
-        <h2 class="section-title">What Epic Delivery Forecast does</h2>
-        <div class="features-grid">
-          <div class="feature-card">
-            <div class="icon-box">📚</div>
-            <h3>Multi-Epic Selection</h3>
-            <p>Choose any number of epics in a project to forecast concurrently.</p>
-          </div>
-          <div class="feature-card">
-            <div class="icon-box">∑</div>
-            <h3>Automatic Aggregation</h3>
-            <p>Includes all issues under selected epics automatically.</p>
-          </div>
-          <div class="feature-card">
-            <div class="icon-box">🚀</div>
-            <h3>Velocity-Based Estimation</h3>
-            <p>Uses your team’s velocity for realistic delivery forecasts.</p>
-          </div>
-          <div class="feature-card">
-            <div class="icon-box">🔌</div>
-            <h3>Built for Jira</h3>
-            <p>Appears as a native Project Tab Panel. Seamless integration.</p>
-          </div>
-          <div class="feature-card">
-            <div class="icon-box">🔒</div>
-            <h3>Read-only & Safe</h3>
-            <p>No issue data is modified. Your data remains secure.</p>
-          </div>
-          <div class="feature-card">
-            <div class="icon-box">🩺</div>
-            <h3>Epic Health Signals</h3>
-            <p>Highlight unestimated issues and blockers that impact delivery</p>
+          <div class="vs-pcard kup">
+            <div class="vs-pcard-top">
+              <img class="vs-product-mark vs-product-mark-56" src="/assets/kup-icon.svg" alt="KUP Compliance Reporter">
+              <div class="vs-pcard-badges">
+                <span class="vs-badge">For Jira</span>
+                <span class="vs-badge vs-badge-warn">Coming soon</span>
+              </div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px;">
+              <span class="vs-pcard-name">KUP Compliance Reporter</span>
+              <span class="vs-pcard-desc">Track KUP creative-work hours against monthly baselines, run manager approvals, and export a payroll-ready monthly summary.</span>
+            </div>
+            <div class="vs-pcard-actions">
+              <a class="vs-pcard-btn primary stretched" href="/products/kup.html">View product →</a>
+              <a class="vs-pcard-btn ghost is-above" href="/documentation.html?product=kup&page=key-concepts">Read the docs</a>
+            </div>
           </div>
         </div>
       </div>
-    </section>
 
-    <section id="features" class="section details-section">
-      <div class="container">
-        <div class="split-content">
-          <div class="text-block">
-            <h2>One view. One number. Realistic timelines.</h2>
-            <p>Epic Calculator adds a Project Tab Panel to your Jira project that lets you:</p>
-            <ul class="benefit-list">
-              <li>Select one or multiple epics</li>
-              <li>Automatically calculate total story points</li>
-              <li>Apply team velocity</li>
-              <li>Instantly see how many sprints are needed to deliver</li>
-            </ul>
-            <p><strong>No configuration-heavy setup. No data export. Just clarity.</strong></p>
-          </div>
-          <div class="image-block">
-            <img src="/src/assets/scr2light.png" alt="Detailed view of calculation"
-              class="feature-img theme-light-only" />
-            <img src="/src/assets/scr2dark.png" alt="Detailed view of calculation"
-              class="feature-img theme-dark-only" />
-          </div>
-        </div>
-        <div class="split-content reverse">
-          <div class="text-block">
-            <h2>Data-Driven Decisions</h2>
-            <p>Stop guessing when your Epics will be done. Use real velocity data to back up your timelines and
-              communicate with confidence.</p>
-          </div>
-          <div class="image-block">
-            <img src="/src/assets/scr3light.png" alt="Configuration view" class="feature-img theme-light-only" />
-            <img src="/src/assets/scr3dark.png" alt="Configuration view" class="feature-img theme-dark-only" />
+      <!-- Why Veloscope -->
+      <div class="vs-band">
+        <div class="vs-band-inner">
+          <h2 class="vs-h2 center">Why teams trust Veloscope</h2>
+          <div class="vs-grid3">
+            <div class="vs-trust-card">
+              <span class="vs-eyebrow">NATIVE TO JIRA</span>
+              <span class="vs-trust-title">Lives where your work lives</span>
+              <span class="vs-trust-body">Project tab panels and dashboard gadgets — no exports, no separate logins, no copy of your data elsewhere.</span>
+            </div>
+            <div class="vs-trust-card">
+              <span class="vs-eyebrow">READ-ONLY &amp; SECURE</span>
+              <span class="vs-trust-title">Your issues stay untouched</span>
+              <span class="vs-trust-body">Our apps read your Jira data to compute reports — they never modify issues, fields, or workflows.</span>
+            </div>
+            <div class="vs-trust-card">
+              <span class="vs-eyebrow">RUNS ON ATLASSIAN</span>
+              <span class="vs-trust-title">Built on Forge</span>
+              <span class="vs-trust-body">Hosted on Atlassian's own infrastructure with its security and compliance model — data never leaves the platform.</span>
+            </div>
           </div>
         </div>
       </div>
-    </section>
 
-    <footer class="footer">
-      <div class="container footer-content">
-        <div class="footer-col">
-          <div class="logo">
-            <img src="/src/assets/veloscope-icon.svg" alt="Veloscope Logo" />
-            Veloscope
-          </div>
-          <p>&copy; 2026 Veloscope. All rights reserved.</p>
+      <!-- Latest from the blog -->
+      <section class="vs-section">
+        <div class="vs-section-head">
+          <h2 class="vs-h2">Latest from the blog</h2>
+          <a class="vs-link-more" href="/blog.html">All posts →</a>
         </div>
-        <div class="footer-col">
-          <h4>Product</h4>
-          <a href="https://marketplace.atlassian.com/apps/1713935368">Marketplace</a>
-          <a href="index.html#features">Features</a>
-          <a href="services.html">Services</a>
-          <a href="documentation.html">Documentation</a>
-        </div>
-        <div class="footer-col">
-          <h4>Legal</h4>
-          <a href="privacy.html">Privacy Policy</a>
-          <a href="security.html">Security Policy</a>
-          <a href="contact.html">Contact</a>
-        </div>
-      </div>
-    </footer>
+        <div class="vs-blog-grid" id="home-blog-grid"></div>
+      </section>
+    </main>
   </div>
-  <script type="module" src="/src/main.js"></script>
+
+  <script type="module" src="/src/site.js"></script>
+  <script type="module">
+    const grid = document.getElementById('home-blog-grid');
+    function fmt(iso) {
+      const d = new Date(iso);
+      return isNaN(d) ? iso : d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+    }
+    const bg = (p) => p.thumbnail ? `center/cover no-repeat url('${p.thumbnail}')` : (p.art || 'linear-gradient(135deg,#0ea5e9,#1e3a8a)');
+    fetch('/blog/posts.json')
+      .then((r) => r.json())
+      .then((posts) => {
+        grid.innerHTML = posts.slice(0, 3).map((p) => `
+          <a class="vs-blog-card" href="/blog/${p.id}/">
+            <div class="vs-blog-art" style="background:${bg(p)}">
+              <span class="vs-blog-tag">${p.tag || 'BLOG'}</span>
+            </div>
+            <div class="vs-blog-body">
+              <span class="vs-blog-date">${fmt(p.date)}</span>
+              <span class="vs-blog-title">${p.title}</span>
+            </div>
+          </a>`).join('');
+      })
+      .catch(() => { grid.innerHTML = ''; });
+  </script>
 </body>
 
 </html>

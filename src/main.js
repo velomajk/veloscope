@@ -206,13 +206,16 @@ if (postContent && postMeta) {
   const isPreRendered = postContent.textContent.trim() !== 'Loading Post...' && postContent.textContent.trim() !== '';
 
   if (!isPreRendered) {
-    // 1. Get the post ID from the URL query string, e.g. ?id=first-post
+    // 1. Resolve the post ID — from ?id=first-post, or from a pretty
+    //    /blog/<id>/ path (the latter is how the dev server serves articles).
     const urlParams = new URLSearchParams(window.location.search);
-    const postId = urlParams.get('id');
+    const queryId = urlParams.get('id');
+    const pathMatch = window.location.pathname.match(/\/blog\/([^/]+)\/?$/);
+    const postId = queryId || (pathMatch ? pathMatch[1] : null);
 
-    // Redirect old post.html?id=X URLs to /blog/X (pre-rendered pages)
-    if (postId && !import.meta.env.DEV) {
-      window.location.replace(`/blog/${postId}/`);
+    // Redirect legacy post.html?id=X URLs to the pretty /blog/X/ page in production
+    if (queryId && !import.meta.env.DEV) {
+      window.location.replace(`/blog/${queryId}/`);
     }
 
     if (!postId) {
@@ -224,9 +227,14 @@ if (postContent && postMeta) {
         .then(posts => {
           const postMetaInfo = posts.find(p => p.id === postId);
           if (postMetaInfo) {
+            const d = new Date(postMetaInfo.date);
+            const niceDate = isNaN(d) ? postMetaInfo.date : d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+            const tag = postMetaInfo.tag ? postMetaInfo.tag.charAt(0).toUpperCase() + postMetaInfo.tag.slice(1).toLowerCase() : '';
+            const eyebrow = tag ? `${niceDate} · ${tag}` : niceDate;
             postMeta.innerHTML = `
-              <span class="post-meta-date">${postMetaInfo.date}</span>
+              <span class="vs-post-eyebrow">${eyebrow}</span>
               <h1 class="post-meta-title">${postMetaInfo.title}</h1>
+              <div class="vs-post-author"><span class="vs-post-avatar">M</span><div><span class="vs-post-author-name">Majk</span><span class="vs-post-author-sub">Founder, Veloscope</span></div></div>
             `;
           }
         })
