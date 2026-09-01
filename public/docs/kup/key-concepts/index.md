@@ -1,21 +1,45 @@
-# Key concepts
+# Key Concepts
 
-KUP Compliance Reporter tracks creative-work hours in Jira against a monthly working-hour baseline, runs a manager approval workflow, and produces a payroll-ready monthly summary. If you're new to the scheme, start here.
+## What the app tracks
 
-## Core terms
+KUP 50% Compliance for Jira records 50% KUP creative-work hours against individual Jira issues. In the issue context panel, an employee selects the reporting month and enters the number of eligible creative-work hours for that issue.
 
-| Term | Meaning |
-|------|---------|
-| **KUP** | *Koszty Uzyskania Przychodu* — creative-work hours eligible for the 50% tax-deductible cost (*honorarium autorskie*). |
-| **KUP month** | A reporting period, shown as e.g. *"May 2026"*. Hours are logged and approved per month. |
-| **Working hours base** | The maximum working hours for a month (set by your admin per month). Your KUP % is measured against this. |
-| **Adjustment** | Personal **absence** hours (which *reduce* your base) or **overtime** hours (which *raise* it), giving an **effective base**. |
-| **KUP %** | `total KUP hours ÷ effective base × 100`. The headline compliance number. |
-| **Limit** | An optional company-wide cap on KUP % set by your admin (e.g. 20%). It can *warn* or *block* approval when exceeded. |
-| **Approval** | A manager signs off an employee's hours for a month. Once approved, the employee can no longer edit those hours or adjustments until a manager un-approves. |
+## Monthly KUP record
 
-## Lifecycle of a month's hours
+Each KUP record includes:
 
-An employee logs hours on issues, optionally sets absence or overtime, and a manager reviews everything on the global page. The manager approves — which locks edits — and accounting receives the payroll export. A manager can un-approve at any time to re-open edits.
+- Reporting month
+- Eligible creative-work hours
+- Approval status
 
-> [!info] Three roles see three different slices of the report: **Administrators** configure the app, **Managers** review and approve, and **Employees** log hours and check their own compliance.
+These values are stored with the Jira issue. The app uses them to create monthly employee and manager reports.
+
+## Working-hour baseline and KUP percentage
+
+Administrators configure a working-hour baseline for each reporting month. The app compares an employee's recorded KUP hours with the applicable baseline to calculate the monthly KUP percentage.
+
+Absence and overtime adjustments can change an employee's effective working-hour base for a reporting month, which changes the percentage calculation.
+
+## Eligibility and configuration
+
+Administrators choose which Jira projects and issue types are eligible for KUP recording. They also configure available reporting months, working-hour baselines, KUP limits, and manager access. See the [Administrator Guide](/documentation.html?product=kup&page=administrator-guide) for setup details.
+
+## Approval workflow
+
+Managers review employees' monthly KUP records and can approve or unapprove records in bulk. Once approved, the relevant KUP entries and monthly adjustments are locked until a manager unapproves those records. See the [Manager Guide](/documentation.html?product=kup&page=manager-guide) for the review workflow.
+
+## Audit trail
+
+The app records KUP changes and manager approval actions with timestamps to support internal review and payroll traceability.
+
+## Payroll export
+
+Managers can generate a monthly CSV or XLSX payroll summary containing the configured employee and KUP data needed for the company's payroll workflow.
+
+## Roles at a glance
+
+| Role | Main responsibilities |
+| --- | --- |
+| Administrator | Configures eligibility, months, baselines, limits, and manager access |
+| Employee | Records KUP creative-work hours on eligible Jira issues and views their monthly report. See the [Employee Guide](/documentation.html?product=kup&page=employee-guide). |
+| Manager | Reviews monthly reports, manages adjustments, approves or unapproves records, and exports payroll summaries |

@@ -16,7 +16,7 @@
     },
     {
       "id": "kup",
-      "name": "KUP Compliance Reporter",
+      "name": "KUP 50% Compliance for Jira",
       "mono": "KUP",
       "tagline": "Key concepts, role-based guides, and the monthly payroll workflow.",
       "accent": "#a78bfa",
