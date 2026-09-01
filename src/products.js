@@ -22,7 +22,7 @@ export const PRODUCTS = [
   },
   {
     id: 'kup',
-    name: 'KUP Compliance Reporter',
+    name: 'KUP 50% Compliance for Jira',
     mono: 'KUP',
     status: 'Coming soon',
     statusKind: 'warn',
@@ -43,10 +43,10 @@ export const DOCS_SEARCH = [
   { title: 'Configuration guide', crumb: 'Docs / Epic Delivery Forecast', icon: 'E', url: '/documentation.html?product=edf&page=configuration-guide' },
   { title: 'How to read the report', crumb: 'Docs / Epic Delivery Forecast', icon: 'E', url: '/documentation.html?product=edf&page=reading-the-report' },
   { title: 'Troubleshooting', crumb: 'Docs / Epic Delivery Forecast', icon: 'E', url: '/documentation.html?product=edf&page=troubleshooting' },
-  { title: 'Key concepts', crumb: 'Docs / KUP Compliance Reporter', icon: 'K', url: '/documentation.html?product=kup&page=key-concepts' },
-  { title: 'Administrator guide', crumb: 'Docs / KUP Compliance Reporter', icon: 'K', url: '/documentation.html?product=kup&page=administrator-guide' },
-  { title: 'Manager guide', crumb: 'Docs / KUP Compliance Reporter', icon: 'K', url: '/documentation.html?product=kup&page=manager-guide' },
-  { title: 'Employee guide', crumb: 'Docs / KUP Compliance Reporter', icon: 'K', url: '/documentation.html?product=kup&page=employee-guide' },
+  { title: 'Key concepts', crumb: 'Docs / KUP 50% Compliance for Jira', icon: 'K', url: '/documentation.html?product=kup&page=key-concepts' },
+  { title: 'Administrator guide', crumb: 'Docs / KUP 50% Compliance for Jira', icon: 'K', url: '/documentation.html?product=kup&page=administrator-guide' },
+  { title: 'Manager guide', crumb: 'Docs / KUP 50% Compliance for Jira', icon: 'K', url: '/documentation.html?product=kup&page=manager-guide' },
+  { title: 'Employee guide', crumb: 'Docs / KUP 50% Compliance for Jira', icon: 'K', url: '/documentation.html?product=kup&page=employee-guide' },
 ];
 
 export function tileBackground(icon) {
