@@ -6,13 +6,17 @@ As an employee you do two things: **log your KUP hours** on the relevant issues,
 
 On any eligible issue, find the **KUP Compliance** panel in the issue's context (right-hand) area.
 
-1. Choose the **KUP Month** the work applies to.
+1. Choose the **Year** and **Month** the work applies to.
 2. Enter the **KUP Hours** for this issue (0–744).
 3. Click **Save**.
 
+Choose **Year** and **Month** separately. The year list includes the current year, the two preceding years, and the next year, sorted in ascending order. The default is the current month, except on days 1–10 (inclusive), when the previous month is selected. Existing issue records retain their saved reporting period.
+
 Notes:
 
-- Every save is recorded under **Compliance Activity** on the panel — a dated trail of what changed.
+- KUP hours belong to the issue’s **assignee at the time of saving**, regardless of who clicks Save. An assignee is required to save KUP data.
+- Changing the Jira assignee does not automatically transfer recorded hours. Save the KUP data again before approval to attribute it to the new assignee. For approved data, ask a manager to **Unapprove** first, then save again.
+- **Compliance Activity** on the panel retains the latest **50 changes per issue**, with dates and details. Older activity entries roll off.
 - Once a manager has **approved** your hours for that month, the panel shows an *"Approved by …"* banner and the fields are **locked**. To make changes, ask your manager to un-approve first.
 - The **View KUP Compliance Report** button jumps to your personal report.
 
@@ -22,7 +26,7 @@ Open **Apps → KUP Compliance** from the Jira top navigation. Employees see the
 
 ![KUP Compliance — My Report tab](/docs-assets/kup/my-report-dark.png)
 
-1. Pick a **Month**.
+1. Pick a **Year** and **Month**.
 2. Three cards summarise your standing:
    - **KUP Hours** — your total creative hours that month.
    - **Max Working Hours / Effective Base** — your baseline (flips to *Effective Base* with a breakdown when you have an adjustment).
@@ -33,7 +37,7 @@ If you're over the company limit, a warning explains whether your manager can st
 
 ## Hours adjustment (absence & overtime)
 
-Your working-hour base can be tuned to reflect reality:
+Your working-hour base starts with the Polish holiday calendar default or an administrator’s monthly override. It can be tuned to reflect reality:
 
 1. In the **Hours adjustment** panel, enter **Absence hours** (e.g. holiday/sick — these *reduce* your base) and/or **Overtime hours** (these *raise* it).
 2. Click **Save adjustment**.

@@ -8,8 +8,8 @@ Managers work from the global **KUP Compliance** page. Open it from the Jira top
 
 **Filters (top row):**
 
-- **Month** — the reporting period to review.
-- **Status** — *All*, *Pending*, or *Approved*.
+- **Year** and **Month** — select the reporting period separately. Years include the current year, the two preceding years, and the next year, in ascending order. The default is the current month, except on days 1–10 (inclusive), when it is the previous month.
+- **Status** — *All*, *Pending*, or *Approved*. *Pending* includes employees with pending or mixed entries; *Approved* includes only employees whose entries are all approved. The filter selects employees without changing their full monthly KUP-hour totals.
 - **Jira group** — limit the list to members of a Jira group.
 - **My Team** — limit the list to your own custom team.
 - **Refresh** — re-fetch after changes.
@@ -29,7 +29,7 @@ The table lists one row per employee:
 | **Status** | *Pending*, *Approved*, or *Mixed*; an **Over limit** lozenge appears if over the cap. |
 | **Action** | Approve / Unapprove. |
 
-Below the table you'll also see any **Unassigned Issues** — issues that have KUP hours logged but no assignee, so someone needs to claim them.
+Hours are grouped by the assignee recorded when the KUP data was saved. Saving requires an assignee. After reassignment, save the KUP data again before approval to transfer it to the new assignee; approved data must first be unlocked with **Unapprove**.
 
 ## Approving and un-approving
 
@@ -62,12 +62,12 @@ Generates a per-employee monthly payroll summary for accounting. It runs in the 
 
 ## Audit Log tab
 
-A chronological record of every approval action for the selected month.
+A chronological record of the latest **500 approval or unapproval actions** for the selected month.
 
 ![Audit Log tab](/docs-assets/kup/audit-log-dark.png)
 
 - **Stat cards:** Total Actions, Approvals, Unapprovals, Active Managers.
 - **Table:** date/time, the **manager** who acted, the action (Approved/Unapproved), the **employee**, and the affected **issues** (clickable links, truncated with "+ N more" when there are many).
-- **Export CSV** downloads the month's log for your records.
+- **Export CSV** downloads the retained actions in the month's log for your records.
 
-> [!info] The audit log keeps the most recent 500 actions per month and 50 changes per issue. Older entries roll off rather than being archived.
+> [!info] The central approval log retains the latest **500 actions per month**. Separately, **Compliance Activity** retains the latest **50 changes per issue**. Older log entries roll off. The core KUP data is stored on Jira issues and can be used to reconstruct the monthly report.

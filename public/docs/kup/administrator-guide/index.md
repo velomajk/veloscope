@@ -20,19 +20,18 @@ Controls **where the KUP panel appears** and which issues can carry KUP hours.
 - **Enable for all projects & issue types** — the simplest setup. When on, the KUP panel appears on every issue.
 - To scope it down, turn that off and pick specific **projects**. Optionally, per project, restrict to specific **issue types** (leave issue types empty to allow all types in that project).
 
-## Available months
+## Reporting period
 
-The list of KUP months that appear in every month dropdown across the app.
+Choose **Year** and **Month** separately. The year list includes the current year, the two preceding years, and the next year, sorted in ascending order. The default is the current month, except on days 1–10 (inclusive), when the previous month is selected. Existing issue records retain their saved reporting period.
 
-- Toggle individual months on/off in the table.
-- If you never configure this, the app defaults to all twelve months of the **current calendar year**.
+Administrators do not configure available months.
 
 ## Working hours per month
 
 The **maximum working hours** baseline for each month — the denominator for everyone's KUP %.
 
-- The app ships with a sensible Polish working-calendar default for each month (2025–2030).
-- Override any month with your organisation's own figure. Employees' absence/overtime adjust *their own* effective base on top of this.
+- The app provides working-hour defaults based on the Polish holiday calendar (2025–2030).
+- Open **Manage overrides** to enable a custom working-hour value for a selected month, enter your organisation's figure, and click **Save**. Clear the custom value to return to the calendar default. Employees' absence/overtime adjust *their own* effective base on top of this.
 
 ## Managers
 
